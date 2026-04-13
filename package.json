@@ -1,0 +1,10 @@
+{
+  "name": "stream-scraper",
+  "version": "1.0.0",
+  "description": "Auto scraper for stream links",
+  "main": "scraper.js",
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cheerio": "^1.0.0-rc.12"
+  }
+}
