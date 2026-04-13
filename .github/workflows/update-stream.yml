@@ -1,0 +1,37 @@
+name: Auto Scrape Live Stream Link
+
+on:
+  schedule:
+    # Yeh job har 3 ghante baad chalegi
+    - cron: '0 */3 * * *'
+  workflow_dispatch: # Yeh manual button ke liye hai
+
+jobs:
+  scrape-and-update:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write # GitHub ko files change karne ki ijazat dena
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Tools
+        run: npm install
+
+      - name: Code Run Karein (Scraping)
+        run: node scraper.js
+
+      - name: Save Naya Link (Commit & Push)
+        run: |
+          git config --global user.name 'GitHub Actions Bot'
+          git config --global user.email 'actions@github.com'
+          git add stream-data.json
+          # Agar naya link purane se mukhtalif hai, tabhi save (commit) karo
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Auto-update stream link" && git push)
