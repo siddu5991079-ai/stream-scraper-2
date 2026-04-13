@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const fs = require('fs');
 
 // Target URL: Yahan aapne wo link dalna hai jahan se video milti hai
-const TARGET_URL = 'https://crichd.com.co/'; 
+const TARGET_URL = 'https://dadocric.st/player.php?id=ptvsp'; 
 
 async function scrapePlayerLink() {
     try {
