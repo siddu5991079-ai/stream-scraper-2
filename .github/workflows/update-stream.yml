@@ -1,8 +1,8 @@
 name: Auto Scrape Live Stream Link
 
 on:
-  schedule:
-    - cron: '0 */3 * * *'
+  # schedule:
+  #   - cron: '0 */3 * * *'
   workflow_dispatch:
     # YAHAN HUMNE INPUT BOX ADD KIYA HAI
     inputs:
